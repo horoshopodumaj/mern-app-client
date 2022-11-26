@@ -3,6 +3,7 @@ import { URL } from "../App";
 
 const instance = axios.create({
     withCredentials: false,
+    credentials: "include",
     headers: {
         "Content-Type": "application/json",
     },
