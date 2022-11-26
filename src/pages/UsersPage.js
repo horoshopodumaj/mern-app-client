@@ -22,6 +22,7 @@ const UsersPage = () => {
                 }
             );
             updateIsLogin(res.data.isLogin);
+            console.log(res);
         } catch (error) {
             console.log(error.response);
         }
