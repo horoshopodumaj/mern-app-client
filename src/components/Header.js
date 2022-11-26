@@ -7,13 +7,13 @@ const Header = () => {
     return (
         <nav className="light-blue">
             <div className="nav-wrapper">
-                <Link to="/login" className="brand-logo ml-15">
+                <Link to="/" className="brand-logo ml-15">
                     TaskF
                 </Link>
                 {isAuth ? (
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li>
-                            <Link to="/login" onClick={logout}>
+                            <Link to="/" onClick={logout}>
                                 Выйти
                             </Link>
                         </li>
@@ -21,7 +21,7 @@ const Header = () => {
                 ) : (
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li>
-                            <Link to="/login">Войти</Link>
+                            <Link to="/">Войти</Link>
                         </li>
                     </ul>
                 )}

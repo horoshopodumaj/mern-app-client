@@ -8,16 +8,16 @@ export const UseRoutes = (isAuth) => {
     if (isAuth) {
         return (
             <Routes>
-                <Route path="/" element={<UsersPage />} />
-                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="/users" element={<UsersPage />} />
+                <Route path="*" element={<Navigate to="/users" />} />
             </Routes>
         );
     }
     return (
         <Routes>
-            <Route path="/login" element={<AuthPage />} />
+            <Route path="/" element={<AuthPage />} />
             <Route path="/registration" element={<LoginPage />} />
-            <Route path="*" element={<Navigate to="/login" />} />
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     );
 };
