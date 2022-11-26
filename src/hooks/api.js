@@ -5,6 +5,7 @@ const instance = axios.create({
     withCredentials: false,
     headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
     },
 });
 
