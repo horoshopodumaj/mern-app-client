@@ -15,6 +15,10 @@ function App() {
     const { login, logout, token, id } = useAuth();
     const [isLogin, setIsLogin] = useState(true);
 
+    const updateIsLogin = (isLoginUserPage) => {
+        setIsLogin(isLoginUserPage);
+    };
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -36,10 +40,6 @@ function App() {
         };
         fetchData();
     }, [id, isLogin, login, message, updateIsLogin]);
-
-    const updateIsLogin = (isLoginUserPage) => {
-        setIsLogin(isLoginUserPage);
-    };
 
     const isAuth = isLogin && !!token;
     const routes = UseRoutes(isAuth);

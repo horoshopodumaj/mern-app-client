@@ -63,6 +63,8 @@ const LoginPage = () => {
                 )
                 .then((response) => {
                     login(response.data.token, response.data.userId);
+                    updateIsLogin(response.data.isLogin);
+                    console.log(response);
                 });
         } catch (error) {
             message(error.response.data.message);
