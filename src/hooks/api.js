@@ -2,7 +2,7 @@ import axios from "axios";
 import { URL } from "../App";
 
 const instance = axios.create({
-    withCredentials: false,
+    withCredentials: true,
     headers: {
         "Content-Type": "application/json",
     },
