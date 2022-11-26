@@ -27,7 +27,7 @@ function App() {
                         },
                     }
                 );
-                setIsLogin(res.data.isLogin);
+                updateIsLogin(res.data.isLogin);
                 message(res.data.message);
                 console.log(res);
             } catch (error) {
@@ -35,14 +35,14 @@ function App() {
             }
         };
         fetchData();
-    }, [id, isLogin, login, message]);
+    }, [id, isLogin, login, message, updateIsLogin]);
 
     const updateIsLogin = (isLoginUserPage) => {
         setIsLogin(isLoginUserPage);
     };
 
     const isAuth = isLogin && !!token;
-    const routes = UseRoutes(isAuth, updateIsLogin);
+    const routes = UseRoutes(isAuth);
 
     return (
         <AuthContext.Provider value={{ login, logout, token, id, isAuth, updateIsLogin }}>

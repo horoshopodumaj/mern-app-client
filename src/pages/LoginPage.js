@@ -18,7 +18,7 @@ const LoginPage = () => {
         isChecked: false,
     });
 
-    const { login } = useContext(AuthContext);
+    const { login, updateIsLogin } = useContext(AuthContext);
 
     const changeHandler = (event) => {
         setForm({
@@ -61,7 +61,11 @@ const LoginPage = () => {
                         },
                     }
                 )
-                .then((response) => login(response.data.token, response.data.userId));
+                .then((response) => {
+                    login(response.data.token, response.data.userId),
+                        updateIsLogin(res.data.isLogin);
+                    console.log(response);
+                });
         } catch (error) {
             message(error.response.data.message);
         }
