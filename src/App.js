@@ -19,7 +19,7 @@ function App() {
         const fetchData = async () => {
             try {
                 const res = await axios.put(
-                    `/api/auth/islogin/${id}`,
+                    `${URL}/api/auth/islogin/${id}`,
                     { id },
                     {
                         headers: {
