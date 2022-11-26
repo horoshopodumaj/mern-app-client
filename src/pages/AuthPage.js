@@ -15,7 +15,7 @@ const AuthPage = () => {
         loginDate: "",
     });
 
-    const { login } = useContext(AuthContext);
+    const { login, updateIsLogin } = useContext(AuthContext);
 
     const changeHandler = (event) => {
         setForm({
@@ -37,7 +37,11 @@ const AuthPage = () => {
                         },
                     }
                 )
-                .then((response) => login(response.data.token, response.data.userId));
+                .then((response) => {
+                    login(response.data.token, response.data.userId);
+                    updateIsLogin(response.data.isLogin);
+                    console.log(response);
+                });
         } catch (error) {
             message(error.response.data.message);
         }
