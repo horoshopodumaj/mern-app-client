@@ -198,8 +198,8 @@ const UsersPage = () => {
                                 <td>{user._id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{moment(user.createDate).format("LLL")}</td>
-                                <td>{moment(user.loginDate).format("LLL")}</td>
+                                <td>{moment(user.createDate).format("lll")}</td>
+                                <td>{moment(user.loginDate).format("lll")}</td>
                                 <td>{user.isBlocked ? "BLOCK" : "UNBLOCK"}</td>
                             </tr>
                         );

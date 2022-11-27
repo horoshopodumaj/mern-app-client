@@ -21,7 +21,7 @@ const AuthPage = () => {
         setForm({
             ...form,
             [event.target.name]: event.target.value,
-            loginDate: moment().format("LLL"),
+            loginDate: moment().format("lll"),
         });
     };
 

@@ -24,8 +24,8 @@ const LoginPage = () => {
         setForm({
             ...form,
             [event.target.name]: event.target.value,
-            createDate: moment().format("LLL"),
-            loginDate: moment().format("LLL"),
+            createDate: moment().format("lll"),
+            loginDate: moment().format("lll"),
             isBlocked: false,
             isChecked: false,
         });
