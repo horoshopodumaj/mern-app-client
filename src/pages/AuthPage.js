@@ -8,6 +8,7 @@ import { usersAPI } from "../api/api";
 const AuthPage = () => {
     const message = useMessage();
     const [type, setType] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [form, setForm] = useState({
         email: "",
         password: "",
@@ -25,12 +26,15 @@ const AuthPage = () => {
     };
 
     const loginHandler = async () => {
+        setLoading(true);
         try {
             await usersAPI.login(form).then((data) => {
                 login(data.token, data.userId);
                 updateIsLogin(data.isLogin);
             });
+            setLoading(false);
         } catch (error) {
+            setLoading(false);
             message(error.response.data.message);
         }
     };
@@ -76,6 +80,7 @@ const AuthPage = () => {
                         <div className="card-action">
                             <button
                                 onClick={loginHandler}
+                                disabled={loading}
                                 className="btn yellow lighten-4 black-text mr-10">
                                 Войти
                             </button>
