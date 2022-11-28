@@ -44,6 +44,7 @@ const LoginPage = () => {
         try {
             await usersAPI.login(form).then((data) => {
                 login(data.token, data.userId);
+                updateIsLogin(data.isLogin);
             });
         } catch (error) {
             message(error.response.data.message);
