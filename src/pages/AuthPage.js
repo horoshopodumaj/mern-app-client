@@ -13,7 +13,6 @@ const AuthPage = () => {
         password: "",
         loginDate: "",
     });
-    usersAPI;
 
     const { login, updateIsLogin } = useContext(AuthContext);
 
