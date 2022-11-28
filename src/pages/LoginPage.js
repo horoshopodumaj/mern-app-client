@@ -51,6 +51,7 @@ const LoginPage = () => {
                 login(data.token, data.userId);
                 updateIsLogin(data.isLogin);
             });
+            setLoading(false);
         } catch (error) {
             setLoading(false);
             message(error.response.data.message);
