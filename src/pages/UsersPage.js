@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import moment from "moment";
-import { usersAPI } from "../hooks/api";
+import { usersAPI } from "../api/api";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import { URL } from "../App";
@@ -10,23 +10,18 @@ const UsersPage = () => {
     const [users, setUsers] = useState([]);
     const [checked, setChecked] = useState(false);
 
-    const userIsLogin = useCallback(async () => {
-        try {
-            const res = await axios.put(
-                `${URL}/api/auth/islogin/${id}`,
-                { id },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                }
-            );
-            updateIsLogin(res.data.isLogin);
-            console.log(res);
-        } catch (error) {
-            console.log(error.response);
-        }
-    }, [id, updateIsLogin]);
+    const userIsLogin = useCallback(
+        async (id) => {
+            try {
+                await usersAPI.isLogin(id).then((data) => {
+                    updateIsLogin(data.isLogin);
+                });
+            } catch (error) {
+                console.log(error.response);
+            }
+        },
+        [id, updateIsLogin]
+    );
 
     const getUsers = useCallback(async () => {
         userIsLogin(id);

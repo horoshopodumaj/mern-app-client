@@ -38,4 +38,20 @@ export const usersAPI = {
             .put(`${URL}/api/users/uncheckedall/${checked}`, { checked })
             .then((response) => response.data);
     },
+    register(form) {
+        return instance
+            .post(`${URL}/api/auth/register`, { ...form })
+            .then((response) => response.data);
+    },
+
+    login(form) {
+        return instance
+            .post(`${URL}/api/auth/login`, { ...form })
+            .then((response) => response.data);
+    },
+    isLogin(id) {
+        return instance
+            .put(`${URL}/api/auth/islogin/${id}`, { id })
+            .then((response) => response.data);
+    },
 };

@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { AuthContext } from "../context/AuthContext";
 import { useMessage } from "../hooks/message.hook";
-import { URL } from "../App";
+import { usersAPI } from "../api/api";
 
 const AuthPage = () => {
     const message = useMessage();
@@ -14,6 +13,7 @@ const AuthPage = () => {
         password: "",
         loginDate: "",
     });
+    usersAPI;
 
     const { login, updateIsLogin } = useContext(AuthContext);
 
@@ -27,21 +27,9 @@ const AuthPage = () => {
 
     const loginHandler = async () => {
         try {
-            await axios
-                .post(
-                    `${URL}/api/auth/login`,
-                    { ...form },
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                    }
-                )
-                .then((response) => {
-                    login(response.data.token, response.data.userId);
-                    updateIsLogin(response.data.isLogin);
-                    console.log(response);
-                });
+            await usersAPI.login(form).then((data) => {
+                login(data.token, data.userId);
+            });
         } catch (error) {
             message(error.response.data.message);
         }
