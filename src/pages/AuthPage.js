@@ -45,7 +45,7 @@ const AuthPage = () => {
 
     return (
         <div className="row">
-            <div className="col s6 offset-s3">
+            <div className="col s12 m8 l6 offset-m2 offset-l3">
                 <h1 className="txt-cnt">Таблица пользователей</h1>
                 <div className="card cyan lighten-5">
                     <form onSubmit={preventDefault}>
@@ -81,10 +81,12 @@ const AuthPage = () => {
                             <button
                                 onClick={loginHandler}
                                 disabled={loading}
-                                className="btn yellow lighten-4 black-text mr-10">
+                                className="btn yellow lighten-4 black-text mr-10 button">
                                 Войти
                             </button>
-                            <Link to="/registration" className="btn teal accent-2 black-text">
+                            <Link
+                                to="/registration"
+                                className="btn teal accent-2 black-text button">
                                 Нет аккаунта?
                             </Link>
                         </div>
