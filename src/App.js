@@ -46,10 +46,7 @@ function App() {
 
     return (
         <AuthContext.Provider value={{ login, logout, token, id, isAuth, updateIsLogin }}>
-            <BrowserRouter>
-                <Header />
-                <div className="container">{routes}</div>
-            </BrowserRouter>
+            <BrowserRouter>{routes}</BrowserRouter>
         </AuthContext.Provider>
     );
 }
