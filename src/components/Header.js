@@ -14,7 +14,7 @@ const Header = () => {
                     <ul id="nav-mobile" className="right">
                         <li>
                             <Link to="/" onClick={logout}>
-                                Выйти
+                                Log out
                             </Link>
                         </li>
                     </ul>
